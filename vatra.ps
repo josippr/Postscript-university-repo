@@ -1,0 +1,48 @@
+50 50 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+gsave
+2 setlinewidth 500 0 moveto 0 0 lineto 0 500 lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+9 { 30 50 moveto 500 50 lineto stroke 0 50 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+10 { 50 20 moveto 50 500 lineto stroke 50 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 500 { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 500 { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+mreza
+
+gsave
+
+%s obzirom da je žuta 1 1 0 vrijednost zelene se smanjuje prema 0. [y = yellow] 
+/y 1 def
+
+100 0 translate
+0 24 240 {
+
+    %u svakom koraku smanjiti vrijednost zelene za 0.072 [namještena vrijednost]
+    /y y 0.072 sub def
+
+    1 y 0 setrgbcolor
+
+    %osnovni lik
+    0 0 moveto
+    %desni luk
+    25 30 25 70 0 100 curveto
+    %lijevi luk
+    -25 70 -25 30 0 0 curveto
+    stroke
+    1.2 1.08 scale
+} for
+
+
+
+grestore
+showpage
